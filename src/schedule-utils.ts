@@ -1,5 +1,8 @@
 import { isWithinInterval, lastDayOfMonth } from 'date-fns';
-import { monthShorthandToMonthOfYear } from './month-utils';
+import {
+  monthShorthandToMonthOfYear,
+  shorthandMonthToDayOfMonth,
+} from './month-utils';
 import { Interval } from './types';
 
 export const checkSchedule = (interval: Interval) => {
@@ -16,12 +19,13 @@ const toDateFnsInterval = (interval: Interval) => {
     start: new Date(
       currentYear,
       startMonth,
-      interval.start.includes('mid') ? 15 : 1
+      shorthandMonthToDayOfMonth(interval.start) || 1
     ),
     end: new Date(
       endMonth < startMonth ? currentYear + 1 : currentYear,
       endMonth,
-      interval.end.includes('mid') ? 15 : lastDayOfMonth(currentDate).getDate()
+      shorthandMonthToDayOfMonth(interval.end) ||
+        lastDayOfMonth(currentDate).getDate()
     ),
   };
 };

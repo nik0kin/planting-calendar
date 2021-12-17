@@ -40,15 +40,120 @@ const cal: PlantingCalendar = {
       },
     },
     {
+      name: 'Beans, snap and lima',
+      schedule: [
+        {
+          start: 'march',
+          end: 'early-june',
+        },
+        {
+          start: 'mid-aug',
+          end: 'mid-sept',
+        },
+      ],
+    },
+    {
+      name: 'Beets',
+      schedule: [
+        {
+          start: 'mid-jan',
+          end: 'early-april',
+        },
+        {
+          start: 'late-aug',
+          end: 'early-nov',
+        },
+      ],
+    },
+    {
+      name: 'Broccoli (transplants)',
+      schedule: [
+        {
+          start: 'mid-jan',
+          end: 'feb',
+        },
+        {
+          start: 'late-aug',
+          end: 'oct',
+        },
+      ],
+    },
+    {
+      name: 'Brussel sprouts (transplants)',
+      schedule: {
+        start: 'late-aug',
+        end: 'oct',
+      },
+    },
+    {
+      name: 'Cabbage (transplants)',
+      schedule: [
+        {
+          start: 'mid-jan',
+          end: 'feb',
+        },
+        {
+          start: 'late-aug',
+          end: 'oct',
+        },
+      ],
+    },
+    {
+      name: 'Cantaloupe (muskmelon)',
+      schedule: {
+        start: 'mid-march',
+        end: 'mid-june',
+      },
+    },
+    {
       name: 'Carrots',
       schedule: [
         {
           start: 'mid-jan',
-          end: 'feb', // 1/4 into march?
+          end: 'early-march',
         },
         {
-          start: 'sept', // last 1/4 of aug?
-          end: 'oct', // 1/4 into nov?
+          start: 'late-aug',
+          end: 'early-nov',
+        },
+      ],
+    },
+    {
+      name: 'Cauliflower (transplants)',
+      schedule: [
+        {
+          start: 'mid-jan',
+          end: 'feb',
+        },
+        {
+          start: 'late-aug',
+          end: 'oct',
+        },
+      ],
+    },
+    {
+      name: 'Chard, Swiss (seeds or transplants)',
+      schedule: [
+        {
+          start: 'mid-jan',
+          end: 'april',
+        },
+        {
+          start: 'late-aug',
+          end: 'mid-nov',
+        },
+      ],
+    },
+    {
+      name: 'Collards (seeds or transplants)',
+      schedule: [
+        {
+          start: 'mid-jan',
+          end: 'feb',
+        },
+        {
+          start: 'late-aug',
+          end: 'mid-nov',
         },
       ],
     },
@@ -57,6 +162,20 @@ const cal: PlantingCalendar = {
       schedule: {
         start: 'mid-sept',
         end: 'nov',
+      },
+    },
+    {
+      name: 'Greens, cool season',
+      schedule: {
+        start: 'late-sept',
+        end: 'march', // 3/4s of march
+      },
+    },
+    {
+      name: 'Greens, warm season',
+      schedule: {
+        start: 'march', // 1/4 into march
+        end: 'mid-aug',
       },
     },
     {

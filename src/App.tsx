@@ -4,21 +4,21 @@ import { checkSchedule } from './schedule-utils';
 import travisCounty from './data/travis-county';
 import { PlantPlantingSchedule, Interval } from './types';
 
-export default () => {
+export const App: React.FC = () => {
+  const dataSet = travisCounty;
   return (
     <>
       {/* What vegetables are easiest to grow right now? */}
       <h1>What vegetables should I plant?</h1>
       <p style={{ fontSize: '1.15em' }}>
         According to{' '}
-        <a href={travisCounty.source} target="_blank">
-          <strong>{travisCounty.expert}</strong>
+        <a href={dataSet.source} target="_blank">
+          <strong>{dataSet.expert}</strong>
         </a>{' '}
-        you should plant the following in {travisCounty.location}{' '}
-        <em>right now</em>:
+        you should plant the following in {dataSet.location} <em>right now</em>:
       </p>
       <ul>
-        {filterApplicablePlants(travisCounty.plants).map((p) => (
+        {filterApplicablePlants(dataSet.plants).map((p) => (
           <li key={p.name}>
             <strong>{p.name}</strong> &nbsp;&nbsp; {renderSchedule(p.schedule)}
           </li>
@@ -26,9 +26,14 @@ export default () => {
       </ul>
       <br />
       <br />
-      {(travisCounty.notes || []).map((n, i) => (
-        <p key={i}>{n}</p>
-      ))}
+      {(dataSet.notes || [])
+        .concat([
+          'Average first freeze: ' + dataSet.averageFirstFreeze,
+          'Average last freeze: ' + dataSet.averageLastFreeze,
+        ])
+        .map((n, i) => (
+          <p key={i}>{n}</p>
+        ))}
     </>
   );
 };
