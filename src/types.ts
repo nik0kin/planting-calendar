@@ -7,4 +7,18 @@ export interface PlantingCalendar {
 
   averageLastFreeze: string; // Calendar Date
   averageFirstFreeze: string;
+
+  plants: PlantPlantingSchedule[];
+
+  notes?: string[];
+}
+
+export interface PlantPlantingSchedule {
+  name: string;
+  schedule: Interval | Interval[];
+}
+
+export interface Interval {
+  start: string;
+  end: string;
 }
