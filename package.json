@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit",
     "typewatch": "tsc --noEmit --watch"
   },
-  "license": "MIT",
+  "license": "GPL",
   "dependencies": {
     "date-fns": "^2.27.0",
     "react": "^17.0.2",
