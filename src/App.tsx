@@ -43,6 +43,10 @@ const renderSchedule = (schedule: Interval | Interval[]): string => {
     return schedule.map((s) => renderSchedule(s)).join(', ');
   }
 
+  if (schedule.start === schedule.end) {
+    return monthShorthandToString(schedule.start);
+  }
+
   return (
     monthShorthandToString(schedule.start) +
     ' to ' +
