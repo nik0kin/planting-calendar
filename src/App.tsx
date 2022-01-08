@@ -4,6 +4,8 @@ import { checkSchedule } from './schedule-utils';
 import travisCounty from './data/travis-county';
 import { PlantPlantingSchedule, Interval } from './types';
 
+import './App.css';
+
 export const App: React.FC = () => {
   const dataSet = travisCounty;
   return (
@@ -17,14 +19,14 @@ export const App: React.FC = () => {
         </a>{' '}
         you should plant the following in {dataSet.location} <em>right now</em>:
       </p>
-      <ul>
+      <ul className="plantable-list">
         {filterApplicablePlants(dataSet.plants).map((p) => (
           <li key={p.name}>
-            <strong>{p.name}</strong> &nbsp;&nbsp; {renderSchedule(p.schedule)}
+            <strong>{p.name}</strong> &nbsp;&nbsp;{' '}
+            <span className="schedule">{renderSchedule(p.schedule)}</span>
           </li>
         ))}
       </ul>
-      <br />
       <br />
       {(dataSet.notes || [])
         .concat([
