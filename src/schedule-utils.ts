@@ -7,7 +7,8 @@ import { Interval } from './types';
 
 export const checkSchedule = (interval: Interval) => {
   const currentDate = new Date();
-  return isWithinInterval(currentDate, toDateFnsInterval(interval));
+  const dateFnsSchedule = toDateFnsInterval(interval);
+  return isWithinInterval(currentDate, dateFnsSchedule);
 };
 
 const toDateFnsInterval = (interval: Interval) => {
@@ -15,14 +16,20 @@ const toDateFnsInterval = (interval: Interval) => {
   const currentYear = currentDate.getFullYear();
   const startMonth = monthShorthandToMonthOfYear(interval.start);
   const endMonth = monthShorthandToMonthOfYear(interval.end);
+  const isEndMonthBeforeStartMonth = endMonth < startMonth;
+  const hasStartMonthPassed = startMonth < currentDate.getMonth();
   return {
     start: new Date(
-      currentYear,
+      isEndMonthBeforeStartMonth && !hasStartMonthPassed
+        ? currentYear - 1
+        : currentYear,
       startMonth,
       shorthandMonthToDayOfMonth(interval.start) || 1
     ),
     end: new Date(
-      endMonth < startMonth ? currentYear + 1 : currentYear,
+      isEndMonthBeforeStartMonth && !hasStartMonthPassed
+        ? currentYear
+        : currentYear + 1,
       endMonth,
       shorthandMonthToDayOfMonth(interval.end) ||
         lastDayOfMonth(currentDate).getDate()

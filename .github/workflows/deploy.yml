@@ -17,6 +17,8 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
+      - name: Test
+        run: yarn test
 
       - name: Deploy WebApp to Server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
